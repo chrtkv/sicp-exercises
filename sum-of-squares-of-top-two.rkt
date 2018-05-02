@@ -1,0 +1,12 @@
+#lang racket
+(define (sum-of-squares-of-top-two a b c)
+  (define (square x)
+    (* x x))
+  (define (sum-of-square x y)
+    (+ (square x) (square y)))
+  (define (bigger-from-three x y z)
+    (define b1 0)
+    (if (> x y) (set! b1 x) (set! b1 y))
+    (if (> b1 z) b1 (set! b1 z))
+    b1)
+  (bigger-from-three (sum-of-square a b) (sum-of-square a c) (sum-of-square b c)))
